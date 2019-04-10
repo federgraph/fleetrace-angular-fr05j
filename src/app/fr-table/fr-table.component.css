@@ -1,0 +1,66 @@
+.selected {
+    background-color: #CFD8DC !important;
+    color: white;
+}
+.h, .hl {
+	background-color: rgb(243, 243, 230);
+	text-align: right;
+}
+.g0 {
+	border-right: 3px yellowgreen solid;
+}
+.g1 {
+	border-right: 3px orange solid;
+}
+.g2 {
+	border-right: 3px cornflowerblue solid;
+}
+.g3 {
+	border-right: 3px tomato solid;
+}
+.g4 {
+	border-right: 3px yellowgreen solid;
+}
+th {
+	margin: 1px;
+	padding: 1px;
+	font-family: verdana, arial, helvetica;
+	font-size: 8pt;
+}
+td {
+	text-align: right;
+	margin: 1px;
+	padding: 1px;
+	font-family: verdana, arial, helvetica;
+	font-size: 8pt;
+}
+td.al, td.nl {
+	text-align: left;
+}
+table.fr tr 
+{
+	border: 1px #69f solid;            
+}
+table.fr tr.highlight 
+{
+	background-color: #fcf;
+}
+table.fr {
+	width: 100%;
+	border-collapse: collapse;
+}
+table.fr thead tr th {
+	text-align: right;
+	color: #0079c2;
+	line-height: 31px;
+	border-top: #6699FF 1px solid;
+	border-bottom: #6699FF 1px solid;
+}
+table.fr tbody tr 
+{
+	border-bottom: #aaf 1px solid;
+}
+table.fr tbody tr td 
+{
+	padding: 6px 3px;
+}
