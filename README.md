@@ -25,7 +25,7 @@ npm run build-fr
 ```
 
 You could build a bunch of slightly different client apps, all using frac as base-href, and then point the Delphi app at one of those.
-FR05J is one step in my attempt to build a ligth weight Angulare timing app for FR.
+FR05J is one step in my attempt to build a ligth weight Angular timing app for FR.
 
 ### How to configure the Delphi app
 
@@ -60,6 +60,10 @@ The Delphi app will tell you what the Url is.
 You could run the Delphi app in a virtual machine in the cloud.
 I have done that many years ago.
 But here I assume you will do so locally, for testing purposes.
+
+FR05J will automatically call back to the Delphi app when it loads and attempt to retrieve the parameters of the currently loaded event,
+the event loaded into the server app. This should always work, since I know that the app will be served by the Delphi app.
+It will of course not work if you start the app up with ng serve. Then you will be *connected* but the app will start and you can see it in the browser.
 
 ### Status
 

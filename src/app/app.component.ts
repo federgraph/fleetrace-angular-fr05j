@@ -1,7 +1,7 @@
 ﻿ import { Component, ViewChild, OnInit } from '@angular/core';
 
 import { ApiService, TimingParams, EventParams, SimpleText } from './shared/api.service';
-import { TBOManager, TCollectionItem } from './shared/bo.service';
+import { TBOManager } from './shared/bo.service';
 
 import { FrTableComponent } from './fr-table/fr-table.component';
 import { ConnectionControlComponent } from './connection-control/connection-control.component';
