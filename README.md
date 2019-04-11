@@ -10,14 +10,14 @@ This Angular client application is a thin client app, used for testing.
 
 Fat client Angular apps that connect to the Delphi app are also available, see FR03A1 or FR03E1.
 
-I have the original project on my Windows machine in directory D:\Angular\FR05J .
+I have the original project on my Windows machine in directory D:\Angular\FR05J.
 
 So on Windows you may want to git clone into a directory named FR05J, all caps, but this is just a suggestion.
 It will matter if you configure the path to the dist folder in the Delphi app, there are defaults.
 
 ### fleet-race-angular-client
 
-You need to build with a base-href of /frac/ which is hardcoded in the Delphi app.
+You need to build with a base-href of `/frac/` which is hardcoded in the Delphi app.
 
 Use the *build-fr* definition in package.json like so:
 ```
@@ -25,7 +25,7 @@ npm run build-fr
 ```
 
 You could build a bunch of slightly different client apps, all using frac as base-href, and then point the Delphi app at one of those.
-FR05J is one step in my attempt to build a ligth weight Angular timing app for FR.
+FR05J is one step in my attempt to build a light weight Angular timing app for FR.
 
 ### How to configure the Delphi app
 
@@ -45,12 +45,11 @@ You need to tell the Delphi desktop app where the Angular app is located, so tha
 - Start up the Delphi app on Windows.
 - Browse to the home page of the web server that is built into the Delphi app.
 - There you will find an *Angular* link.
-- On the page that is shown you will find a link to *FRAC* .
-- This will call up /frac/index.html .
+- On the page that is shown you will find a link to *FRAC*.
+- This will call up /frac/index.html.
 - You should see the Angular app loading.
 
-Of course you can just open Chrome and surf directly to something like
-
+Of course, you can just open Chrome and surf directly to something like
 ```
 http://localhost:8086/Angular/Index
 http://localhost:8086/frac/index.html
@@ -63,11 +62,11 @@ But here I assume you will do so locally, for testing purposes.
 
 FR05J will automatically call back to the Delphi app when it loads and attempt to retrieve the parameters of the currently loaded event,
 the event loaded into the server app. This should always work, since I know that the app will be served by the Delphi app.
-It will of course not work if you start the app up with ng serve. Then you will be *connected* but the app will start and you can see it in the browser.
+It will of course not work if you start the app up with ng serve. Then you will be *Not Connected* but the app will start and you can see it in the browser.
 
 ### Status
 
-Hey, I need to put this project on github so that I do not loose it.
+Hey, I need to put this project on github so that I do not loose code.
 
 It is considered work in progress, though I am not currently working on it.
 
