@@ -60,33 +60,38 @@ You could run the Delphi app in a virtual machine in the cloud.
 I have done that many years ago.
 But here I assume you will do so locally, for testing purposes.
 
-FR05J will automatically call back to the Delphi app when it loads and attempt to retrieve the parameters of the currently loaded event,
-the event loaded into the server app. This should always work, since I know that the app will be served by the Delphi app.
-It will of course not work if you start the app up with ng serve. Then you will be *Not Connected* but the app will start and you can see it in the browser.
+FR05J will automatically call back to the Delphi app when it loads.
+It will try to retrieve the parameters of the currently loaded event - the event loaded into the server app.
+This should succeed since we know that the app will be served by the Delphi app - so the server is always up.
+
+By design it does not work if you start the app up with `ng serve -o`.
+Then you are NOT *connected*, but the app will start up, you can see it in the browser, and click on buttons.
 
 ### Status
 
-Hey, I need to put this project on github so that I do not loose code.
+I need to put this project on github so that I do not loose code.
 
 It is considered work in progress, though I am not currently working on it.
 
 Use it for testing within your local area network. There is no authentication, no authorization.
 
 I have done similar thin client applications for FR in the past using other technology.
-Usually you would send timing messages via tcp, from a desktop client program.
+Usually you would be sending timing messages via tcp, from a desktop client program.
 
 This Angular app can show you what has been possible in the past,
 what is still possible,
 how it is intended,
-and what should perhaps (please) be working the same way in the future. 
+and what should perhaps be working the same way in the future. 
 
-In order to build something modern which can be used with the devices,
-you may want to start here.
+You may start here in order to build something modern which can be used with the devices.
 
-Next up, you could try to morph this into something that is fun to use on a phone (layout).
+Help morphing this into something that is fun to use on a phone.
 
-I guess I will continue to maintain the Delphi server app, while the *community* may do care more about the client apps,
-both fat client apps and thin client apps.
+Perhaps I will continue to maintain the Delphi server application,
+while the *community* might do client apps, fat and thin.
 
 The server can be thin or fat too. FR69 is a super fat server app written in Delphi.
-But Asp.Net could be used.
+
+Asp.Net or Node/Express can be used instead of the Delphi app.
+
+See the readme files for projects FR03A1 and FR03E1.
