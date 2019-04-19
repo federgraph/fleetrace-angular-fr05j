@@ -1,4 +1,4 @@
-# FR05J
+﻿# FR05J
 
 This Angular client application is a thin client app, used for testing.
 
@@ -69,7 +69,7 @@ Then you are NOT *connected*, but the app will start up, you can see it in the b
 
 ### Status
 
-I need to put this project on github so that I do not loose code.
+I need to put this project on GitHub so that I do not loose code.
 
 It is considered work in progress, though I am not currently working on it.
 
