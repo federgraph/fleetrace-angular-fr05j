@@ -2,7 +2,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { MaterialModule} from "./material/material.module";
+import { MaterialModule} from './material/material.module';
 
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
@@ -14,7 +14,7 @@ import { ConnectionControlComponent } from './connection-control/connection-cont
 import { FrTableComponent } from './fr-table/fr-table.component';
 import { TimingButtonsComponent } from './timing-buttons/timing-buttons.component';
 
-import { ONLINE_SERVICES } from "./shared/services";
+import { ONLINE_SERVICES } from './shared/services';
 
 @NgModule({
   declarations: [

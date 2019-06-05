@@ -16,7 +16,7 @@ export class FrTableComponent implements OnInit {
 
   resultTable: ResultTable;
   resultTableJson: string;
-  currentHeaderCell: ResultHeaderCell; 
+  currentHeaderCell: ResultHeaderCell;
   currentColumn: number;
   currentIndex: Array<number>;
   resultTableBody: Array<ResultTableRow>;
@@ -32,13 +32,13 @@ export class FrTableComponent implements OnInit {
   }
 
   initTable(netto: string) {
-    this.resultTable = JSON.parse(netto);    
+    this.resultTable = JSON.parse(netto);
     this.resultTableJson = netto;
 
     this.resultTableHeader = [];
     const l = this.resultTable.head.cols.length;
-    for(let i = 0; i < l; i++) {
-      const rhc = new ResultHeaderCell(i, 
+    for (let i = 0; i < l; i++) {
+      const rhc = new ResultHeaderCell(i,
         this.resultTable.head.cols[i].c,
         this.resultTable.head.cols[i].v);
       this.resultTableHeader.push(rhc);
@@ -46,14 +46,14 @@ export class FrTableComponent implements OnInit {
 
     this.headerClick(this.resultTableHeader[0]);
   }
-  
+
   headerClick(cell: ResultHeaderCell) {
     if (this.currentHeaderCell && cell !== this.currentHeaderCell) {
       this.currentHeaderCell.clear();
     }
-    cell.swap();             
+    cell.swap();
     this.currentHeaderCell = cell;
-    
+
     const r = 0;
     const c = cell.i;
     this.currentColumn = c;
@@ -63,12 +63,13 @@ export class FrTableComponent implements OnInit {
     const st = Array<ResultTableRow>();
     const l = this.resultTable.index.length;
     for (let i = 0; i < l; i++) {
-      if (cell.b)
+      if (cell.b) {
         a = this.resultTable.index[i][c];
-      else
-        a = this.resultTable.index[l-1-i][c];
+      } else {
+        a = this.resultTable.index[l - 1 - i][c];
+      }
       aa.push(a);
-      st.push(this.resultTable.body[a-1]);
+      st.push(this.resultTable.body[a - 1]);
     }
     this.currentIndex = aa;
     this.resultTableBody = st;
