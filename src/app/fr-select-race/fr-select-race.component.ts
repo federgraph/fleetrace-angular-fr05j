@@ -1,42 +1,44 @@
 import { Component, Output, EventEmitter, Input } from '@angular/core';
+import { MaterialModule } from '../material/material.module';
 
 @Component({
+  imports: [MaterialModule],
   selector: 'app-fr-select-race',
   templateUrl: './fr-select-race.component.html',
-  styleUrls: ['./fr-select-race.component.css']
+  styleUrls: ['./fr-select-race.component.css'],
 })
 export class FrSelectRaceComponent {
+  numbers: number[] = [];
 
-  numbers: Array<number> = [];
+  fRaceCount = 1;
 
-  fRaceCount: number = 1;
-
-  get raceCount(): number { return this.fRaceCount; }
+  get raceCount(): number {
+    return this.fRaceCount;
+  }
 
   @Input() set raceCount(value: number) {
     this.fRaceCount = value;
     this.update();
   }
 
-  @Output() raceChanged: EventEmitter<number> = new EventEmitter();
-  @Output() clearCommand: EventEmitter<number> = new EventEmitter();
+  @Output() raceChanged = new EventEmitter<number>();
+  @Output() clearCommand = new EventEmitter<number>();
 
-  constructor() { }
+  constructor() {}
 
-  click(value: number) {
+  click(value: number): void {
     this.raceChanged.emit(value);
   }
 
-  update() {
+  update(): void {
     // generate [0, 1, ... , raceCount-2]
     let t = Array.from(Array(this.raceCount - 1).keys());
     // map to [2, 3, ... , raceCount]
-    t = t.map( (value, index) => value + 2);
+    t = t.map((value, index) => value + 2);
     this.numbers = t;
   }
 
   clear() {
     this.clearCommand.emit(0);
   }
-
 }

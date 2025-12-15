@@ -53,9 +53,9 @@ export class ResultTableRow {
 }
 
 export class ResultTable {
-  head: ResultTableRow;
-  body: Array<ResultTableRow>;
-  index: Array<Array<number>>;
+  head!: ResultTableRow;
+  body!: ResultTableRow[];
+  index!: number[][];
 
   clearBody() {
     this.body = new Array<ResultTableRow>();
@@ -173,25 +173,22 @@ export class ResultTable {
     tr.add('n', '1');
     this.body.push(tr);
 
-    const indexTable =
-    [
-    [1, 1, 1, 1, 1, 1, 8, 1, 8],
-    [2, 2, 2, 2, 2, 3, 7, 8, 1],
-    [3, 3, 3, 3, 3, 2, 6, 7, 7],
-    [4, 4, 4, 4, 4, 4, 5, 2, 2],
-    [5, 5, 5, 5, 5, 8, 1, 3, 3],
-    [6, 6, 6, 6, 6, 7, 2, 6, 6],
-    [7, 7, 7, 7, 7, 6, 4, 4, 4],
-    [8, 8, 8, 8, 8, 5, 3, 5, 5]
+    const indexTable = [
+      [1, 1, 1, 1, 1, 1, 8, 1, 8],
+      [2, 2, 2, 2, 2, 3, 7, 8, 1],
+      [3, 3, 3, 3, 3, 2, 6, 7, 7],
+      [4, 4, 4, 4, 4, 4, 5, 2, 2],
+      [5, 5, 5, 5, 5, 8, 1, 3, 3],
+      [6, 6, 6, 6, 6, 7, 2, 6, 6],
+      [7, 7, 7, 7, 7, 6, 4, 4, 4],
+      [8, 8, 8, 8, 8, 5, 3, 5, 5],
     ];
     this.index = indexTable;
   }
-
 }
 
 @Injectable()
 export class TableService {
-
   fleetTest: ResultTable;
 
   constructor() {
@@ -202,5 +199,4 @@ export class TableService {
   getFleetTestJson() {
     return JSON.stringify(this.fleetTest);
   }
-
 }

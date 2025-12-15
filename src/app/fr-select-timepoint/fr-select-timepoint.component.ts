@@ -1,15 +1,16 @@
 ﻿import { Component, Output, EventEmitter, Input } from '@angular/core';
+import { MaterialModule } from '../material/material.module';
 
 @Component({
+  imports: [MaterialModule],
   selector: 'app-fr-select-timepoint',
   templateUrl: './fr-select-timepoint.component.html',
-  styleUrls: ['./fr-select-timepoint.component.css']
+  styleUrls: ['./fr-select-timepoint.component.css'],
 })
 export class FrSelectTimepointComponent {
+  numbers: number[] = [];
 
-  numbers: Array<number> = [];
-
-  fITCount: number = 1;
+  fITCount = 1;
 
   get itCount(): number {
     return this.fITCount;
@@ -20,23 +21,22 @@ export class FrSelectTimepointComponent {
     this.update();
   }
 
-  @Output() timePointChanged: EventEmitter<number> = new EventEmitter();
-  @Output() clearCommand: EventEmitter<number> = new EventEmitter();
+  @Output() timePointChanged = new EventEmitter<number>();
+  @Output() clearCommand = new EventEmitter<number>();
 
   constructor() {
     this.update();
   }
 
-  click(value: number) {
+  click(value: number): void {
     this.timePointChanged.emit(value);
   }
 
-  update() {
+  update(): void {
     this.numbers = Array.from(Array(this.itCount).keys());
   }
 
   clear() {
     this.clearCommand.emit(0);
   }
-
 }

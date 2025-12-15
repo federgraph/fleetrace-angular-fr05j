@@ -1,14 +1,22 @@
-<table class="fr results">    
-<thead>            
-  <tr>
-    <th *ngFor="let cell of resultTableHeader"
-    [class.selected]="cell === currentHeaderCell"
-    (click)="headerClick(cell)"
-    class="{{cell.c}}">{{cell.v}}{{cell.s}}</th>
-  </tr>
-</thead>    
-  <tr *ngFor="let row of resultTableBody; let i = index"
-    (click)="setClickedRow(i)" [class.highlight]="i === selectedRow">
-    <td *ngFor="let cell of row.cols" class="{{cell.c}}">{{cell.v}}</td>     
-  </tr>
+<table class="fr results">
+  <thead>
+    <tr>
+      @for (cell of resultTableHeader; track cell) {
+        <th
+          [class.selected]="cell === currentHeaderCell"
+          (click)="headerClick(cell)"
+          class="{{ cell.c }}"
+        >
+          {{ cell.v }}{{ cell.s }}
+        </th>
+      }
+    </tr>
+  </thead>
+  @for (row of resultTableBody; track row; let i = $index) {
+    <tr (click)="setClickedRow(i)" [class.highlight]="i === selectedRow">
+      @for (cell of row.cols; track cell) {
+        <td class="{{ cell.c }}">{{ cell.v }}</td>
+      }
+    </tr>
+  }
 </table>

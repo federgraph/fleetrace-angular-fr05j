@@ -1,30 +1,32 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 
 import {
   TableService,
   ResultTable,
   ResultTableRow,
-  ResultHeaderCell
+  ResultHeaderCell,
 } from '../shared/table.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-fr-table',
+  imports: [FormsModule],
   styleUrls: ['./fr-table.component.css'],
-  templateUrl: './fr-table.component.html'
+  templateUrl: './fr-table.component.html',
 })
 export class FrTableComponent implements OnInit {
-
-  resultTable: ResultTable;
-  resultTableJson: string;
-  currentHeaderCell: ResultHeaderCell;
-  currentColumn: number;
-  currentIndex: Array<number>;
-  resultTableBody: Array<ResultTableRow>;
-  resultTableHeader: Array<ResultHeaderCell>;
+  resultTable!: ResultTable;
+  resultTableJson: string = '';
+  currentHeaderCell!: ResultHeaderCell;
+  currentColumn = 1;
+  currentIndex: number[] = [];
+  resultTableBody!: ResultTableRow[];
+  resultTableHeader!: ResultHeaderCell[];
   selectedRow: number = -1;
 
-  constructor(private dataService: TableService) {
-  }
+  private dataService = inject(TableService);
+
+  constructor() {}
 
   ngOnInit() {
     const s = JSON.stringify(this.dataService.fleetTest);
@@ -38,9 +40,11 @@ export class FrTableComponent implements OnInit {
     this.resultTableHeader = [];
     const l = this.resultTable.head.cols.length;
     for (let i = 0; i < l; i++) {
-      const rhc = new ResultHeaderCell(i,
+      const rhc = new ResultHeaderCell(
+        i,
         this.resultTable.head.cols[i].c,
-        this.resultTable.head.cols[i].v);
+        this.resultTable.head.cols[i].v,
+      );
       this.resultTableHeader.push(rhc);
     }
 
@@ -82,5 +86,4 @@ export class FrTableComponent implements OnInit {
   setTable(netto: string) {
     this.initTable(netto);
   }
-
 }
