@@ -3,14 +3,14 @@
 import { ApiService, TimingParams, EventParams, SimpleText } from './shared/api.service';
 import { TBOManager } from './shared/bo.service';
 
-import { FrTableComponent } from './fr-table/fr-table.component';
 import { ConnectionControlComponent } from './connection-control/connection-control.component';
 import { TimingButtonsComponent } from './timing-buttons/timing-buttons.component';
-import { CommonModule, JsonPipe } from '@angular/common';
-import { MaterialModule } from './material/material.module';
 import { FrSelectRaceComponent } from './fr-select-race/fr-select-race.component';
 import { FrSelectTimepointComponent } from './fr-select-timepoint/fr-select-timepoint.component';
+import { FrTableComponent } from './fr-table/fr-table.component';
+import { CommonModule, JsonPipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { MaterialModule } from './material/material.module';
 
 @Component({
   imports: [
@@ -29,8 +29,7 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './app.component.css',
 })
 export class AppComponent implements OnInit {
-  @ViewChild(ConnectionControlComponent, { static: true })
-  connectionControl!: ConnectionControlComponent;
+  @ViewChild(ConnectionControlComponent, { static: true }) connectionControl!: ConnectionControlComponent;
 
   @ViewChild(FrTableComponent, { static: true }) frTable!: FrTableComponent;
 
@@ -50,10 +49,10 @@ export class AppComponent implements OnInit {
   time = '';
   status = '';
 
-  mode: number = 0;
+  mode = 0;
   modes = ['narrow', 'wide', 'finish', 'points'];
 
-  option: number = 0;
+  option = 0;
   options = ['time/finish', 'dns', 'dnf', 'dsq', 'ok', 'erase'];
 
   resultCounter = 0;
